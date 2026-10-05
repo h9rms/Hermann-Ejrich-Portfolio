@@ -1,0 +1,53 @@
+<section class="skills" id="skills">
+  <div class="skills-content">
+    <div class="skills-intro">
+      <h2>Core Competencies</h2>
+      <div class="skills-box">
+        <p>
+          Emphasise that you have used a variety of front-end technologies in your projects. Where
+          have you used these skills: static or dynamic websites, responsive layouts, data
+          visualization interfaces, smooth user experiences?
+        </p>
+      </div>
+    </div>
+
+    <div class="star-wrapper">
+      <button
+        class="star-btn"
+        (mouseenter)="openOverlay()"
+        (mouseleave)="closeOverlay()"
+        (click)="openOverlay()"
+        aria-label="Skills I want to learn"
+      >
+        <img src="/assets/icons/skills_star.svg" alt="" />
+      </button>
+
+      @if (isOverlayOpen) {
+        <div class="growth-overlay">
+          <h3>Don't see the skill you are looking for?</h3>
+          <p>
+            Feel free to contact me. I look forward to expanding on my previous knowledge. Also I
+            have a special interest in learning:
+          </p>
+          <ul class="learning-list">
+            @for (skill of learningSkills; track skill.name) {
+              <li>
+                <img [src]="'/assets/icons/' + skill.icon" alt="" />
+                <span>{{ skill.name }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+
+    <ul class="skills-grid">
+      @for (skill of skills; track skill.name) {
+        <li class="skill">
+          <img [src]="'/assets/icons/' + skill.icon" alt="" />
+          <span>{{ skill.name }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

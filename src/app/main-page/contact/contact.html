@@ -1,0 +1,48 @@
+<section class="contact" id="contact">
+  <div class="contact-content">
+    <div class="contact-main">
+      <div class="contact-intro">
+        <h2>Let's build<br />something Cool<br />together!</h2>
+        <h3>Got a problem to solve?</h3>
+        <p>
+          Encourage people to contact you and describe what role you are interested in. Show that you
+          will add value to their projects through your work.
+        </p>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">What's your name?</label>
+            <input id="name" type="text" placeholder="Your name goes here" />
+          </div>
+
+          <div class="field">
+            <label for="email">What's your email?</label>
+            <input id="email" type="email" placeholder="youremail@email.com" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">How can I help you?</label>
+          <textarea id="message" rows="1" placeholder="Hello Hermann, I am interested in..."></textarea>
+        </div>
+
+        <div class="privacy">
+          <input type="checkbox" id="privacy" />
+          <label for="privacy">
+            I've read the <a routerLink="/privacy-policy">privacy policy</a> and agree to the
+            processing of my data.
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn" disabled>Drop a Line</button>
+          <a href="#hero" class="scroll-top" aria-label="Back to top">↑</a>
+        </div>
+      </form>
+    </div>
+
+    <app-footer />
+  </div>
+</section>

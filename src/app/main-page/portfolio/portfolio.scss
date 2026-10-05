@@ -1,0 +1,275 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.portfolio {
+  min-height: 100vh;
+  padding: 160px 0 80px;
+  background-color: $color-cream;
+  color: $color-dark;
+}
+
+.portfolio-content {
+  @include content-wrapper;
+}
+
+.portfolio-intro {
+  @include flex(row, flex-start, center, 72px);
+  margin-bottom: 60px;
+
+  p {
+    max-width: 536px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.3;
+  }
+}
+
+h2 {
+  font-size: clamp(48px, 5.5vw, 80px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.project {
+  @include flex(row, flex-start, flex-start, 40px);
+}
+
+.project-image {
+  @include flex(row, center, center);
+  position: relative;
+  flex-shrink: 0;
+  width: min(488px, 40%);
+  aspect-ratio: 1;
+  border: 1px solid $color-dark;
+  overflow: hidden;
+
+  img {
+    position: relative;
+    z-index: 1;
+    width: 85%;
+  }
+}
+
+.theme-yellow {
+  background-color: $color-yellow;
+  color: $color-orange;
+}
+
+.theme-orange {
+  background-color: $color-orange;
+  color: $color-yellow;
+}
+
+.theme-blue {
+  background-color: $color-blue;
+  color: $color-orange;
+}
+
+.project-star {
+  position: absolute;
+  left: -40px;
+  bottom: -70px;
+  width: 250px;
+  height: 250px;
+  background-color: currentColor;
+  -webkit-mask: url('/assets/img/hero_background.png') center / contain no-repeat;
+  mask: url('/assets/img/hero_background.png') center / contain no-repeat;
+}
+
+.project-side {
+  flex: 1;
+  margin-top: 34px;
+}
+
+.project-card {
+  @include flex(column, center, flex-start);
+  min-height: 368px;
+  padding: 32px;
+  background-color: $color-dark;
+  color: $color-cream;
+  border-radius: 4px;
+}
+
+.card-head {
+  @include flex(row, space-between, center);
+  width: 100%;
+  margin-bottom: 16px;
+
+  h3 {
+    font-family: $font-text;
+    font-size: 32px;
+    font-weight: 500;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+}
+
+.project-icon-btn {
+  display: flex;
+  background: none;
+  border: none;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.capsule {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  z-index: 5;
+  width: 280px;
+  padding: 16px;
+  background-color: $color-blue;
+  color: $color-cream;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.technologies {
+  font-size: 20px;
+  color: $color-blue;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 32px;
+}
+
+.card-actions {
+  @include flex(row, flex-start, center, 32px);
+
+  .btn {
+    font-size: 22px;
+  }
+}
+
+.btn-arrow::after {
+  content: '→';
+}
+
+.btn:hover .btn-arrow::after {
+  content: '↗';
+}
+
+.project-nav {
+  @include flex(row, space-between, center);
+  margin-top: 32px;
+
+  button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    font-weight: 700;
+    transition: color 125ms ease;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+}
+
+@include tablet {
+  .portfolio {
+    padding: 140px 0 80px;
+  }
+
+  .portfolio-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .project {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-image {
+    width: 100%;
+    max-width: 488px;
+  }
+
+  .project-side {
+    width: 100%;
+    max-width: 688px;
+    margin-top: 0;
+  }
+}
+
+@include mobile {
+  .portfolio {
+    padding: 100px 0 64px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .portfolio-intro p {
+    font-size: 16px;
+  }
+
+  .project {
+    gap: 24px;
+  }
+
+  .project-image {
+    max-width: none;
+  }
+
+  .project-star {
+    width: 180px;
+    height: 180px;
+    bottom: -50px;
+  }
+
+  .project-card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .card-head h3 {
+    font-size: 24px;
+  }
+
+  .technologies,
+  .description {
+    font-size: 16px;
+  }
+
+  .description {
+    margin-bottom: 24px;
+  }
+
+  .card-actions {
+    justify-content: space-between;
+    gap: 16px;
+
+    .btn {
+      font-size: 18px;
+    }
+  }
+
+  .capsule {
+    width: 240px;
+  }
+
+  .project-nav {
+    margin-top: 24px;
+
+    button {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,269 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.contact {
+  padding-top: 160px;
+  background-color: $color-dark;
+  color: $color-cream;
+  overflow: hidden;
+}
+
+.contact-content {
+  @include content-wrapper;
+  @include flex(column, flex-start, stretch);
+  position: relative;
+  min-height: min(calc(100vh - 160px), 860px);
+}
+
+.contact-main {
+  @include flex(row, space-between, flex-start);
+  flex: 1;
+}
+
+.contact-intro {
+  max-width: 600px;
+
+  h2 {
+    font-size: clamp(48px, 5.5vw, 80px);
+    line-height: 0.9;
+    color: $color-yellow;
+    white-space: nowrap;
+    margin-bottom: 64px;
+  }
+
+  h3 {
+    font-family: $font-text;
+    font-size: 28px;
+    font-weight: 500;
+    color: $color-orange;
+    margin-bottom: 24px;
+  }
+
+  p {
+    max-width: 500px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.3;
+  }
+}
+
+.contact-form {
+  width: min(600px, 50%);
+  margin-top: 238px;
+}
+
+.form-row {
+  @include flex(row, flex-start, flex-start, 32px);
+
+  .field {
+    flex: 1;
+  }
+}
+
+.field {
+  @include flex(column, flex-start, stretch);
+  margin-bottom: 56px;
+  border-bottom: 1px solid $color-yellow;
+
+  label {
+    padding: 0 16px;
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    transition: color 125ms ease;
+  }
+
+  &:focus-within label {
+    color: $color-orange;
+  }
+
+  input,
+  textarea {
+    padding: 0 16px 12px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 300;
+    color: $color-cream;
+
+    &::placeholder {
+      color: $color-cream;
+      opacity: 0.6;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-cream;
+      -webkit-box-shadow: 0 0 0 1000px $color-dark inset;
+      caret-color: $color-cream;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  textarea {
+    resize: none;
+    field-sizing: content;
+    max-height: 160px;
+  }
+}
+
+.privacy {
+  @include flex(row, flex-start, flex-start, 12px);
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 300;
+
+  input {
+    appearance: none;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    border: 2px solid $color-orange;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: border-color 125ms ease;
+
+    &:hover {
+      border-color: $color-yellow;
+    }
+
+    &:checked {
+      background: $color-orange
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.5 3.5L11 1.5' fill='none' stroke='%231c1c1c' stroke-width='2'/%3E%3C/svg%3E")
+        center / 12px no-repeat;
+    }
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  a {
+    color: $color-orange;
+    transition: color 125ms ease;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+}
+
+.form-actions {
+  @include flex(row, center, center);
+
+  .btn {
+    font-size: 22px;
+
+    &:disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+}
+
+.scroll-top {
+  position: absolute;
+  top: 30px;
+  right: 88px;
+  font-size: 32px;
+  font-weight: 300;
+  transition: color 125ms ease;
+
+  &:hover {
+    color: $color-orange;
+  }
+}
+
+@include tablet {
+  .contact {
+    padding-top: 140px;
+  }
+
+  .contact-content {
+    min-height: 0;
+  }
+
+  .contact-main {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .contact-intro {
+    max-width: none;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .scroll-top {
+    right: $padding-tablet;
+  }
+}
+
+@include mobile {
+  .contact {
+    padding-top: 100px;
+  }
+
+  .contact-intro {
+    h2 {
+      font-size: 40px;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+
+    .field {
+      width: 100%;
+    }
+  }
+
+  .field {
+    margin-bottom: 40px;
+
+    label {
+      font-size: 20px;
+    }
+
+    input,
+    textarea {
+      font-size: 16px;
+    }
+  }
+
+  .privacy {
+    font-size: 16px;
+  }
+
+  .form-actions {
+    position: relative;
+
+    .btn {
+      font-size: 18px;
+    }
+  }
+
+  .scroll-top {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}

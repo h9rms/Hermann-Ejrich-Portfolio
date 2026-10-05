@@ -1,0 +1,179 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.about {
+  height: 100vh;
+  min-height: 700px;
+  background-color: $color-cream;
+  color: $color-dark;
+  overflow: hidden;
+}
+
+.about-content {
+  @include content-wrapper;
+  position: relative;
+  height: 100%;
+}
+
+h2 {
+  position: absolute;
+  top: 160px;
+  right: $padding-desktop;
+  font-size: clamp(48px, 5.5vw, 80px);
+  line-height: 1;
+}
+
+.about-photo {
+  position: absolute;
+  left: $padding-desktop;
+  bottom: 0;
+  height: 82%;
+  aspect-ratio: 528 / 740;
+  object-fit: cover;
+}
+
+.about-box {
+  position: absolute;
+  top: 36%;
+  left: 39%;
+  z-index: 2;
+  width: min(600px, 48%);
+  padding: 32px;
+  background-color: $color-dark;
+  color: $color-cream;
+  border-radius: 4px;
+
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  p + p {
+    margin-top: 24px;
+  }
+}
+
+.about-actions {
+  @include flex(row, space-between, center);
+  margin-top: 32px;
+}
+
+.emoji-btn {
+  display: flex;
+  background: none;
+  border: none;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.about-overlay {
+  position: absolute;
+  right: 32px;
+  bottom: 88px;
+  z-index: 5;
+  width: 300px;
+  padding: 24px 32px;
+  background-color: $color-blue;
+  border: 2px solid $color-dark;
+  border-radius: 8px;
+  color: $color-cream;
+
+  h3 {
+    font-family: $font-text;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  ul {
+    @include flex(column, flex-start, flex-start, 8px);
+  }
+
+  li {
+    @include flex(row, flex-start, center, 12px);
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  li img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@include tablet {
+  .about {
+    height: auto;
+    min-height: 0;
+    padding: 140px 0 80px;
+  }
+
+  .about-content {
+    @include flex(column, flex-start, stretch);
+    height: auto;
+  }
+
+  h2 {
+    position: static;
+    align-self: flex-end;
+    margin-bottom: 32px;
+  }
+
+  .about-photo {
+    position: static;
+    width: 60%;
+    height: auto;
+  }
+
+  .about-box {
+    position: relative;
+    inset: auto;
+    align-self: flex-end;
+    width: 80%;
+    margin-top: -120px;
+  }
+}
+
+@include mobile {
+  .about {
+    padding: 100px 0 64px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .about-photo {
+    width: 65%;
+  }
+
+  .about-box {
+    width: 85%;
+    margin-top: -80px;
+    padding: 16px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .about-overlay {
+    right: 16px;
+    bottom: 72px;
+    width: 260px;
+    padding: 16px;
+
+    h3 {
+      font-size: 22px;
+    }
+
+    li {
+      font-size: 18px;
+    }
+  }
+}

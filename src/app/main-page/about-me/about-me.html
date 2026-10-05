@@ -1,0 +1,44 @@
+<section class="about" id="about-me">
+  <div class="about-content">
+    <h2>About me</h2>
+
+    <img src="/assets/img/about_me_photo.jpg" alt="Hermann Ejrich at work" class="about-photo" />
+
+    <div class="about-box">
+      <p>
+        Hey there, I'm Hermann. Write some information about yourself that is IT related. Why are you
+        passionate about coding? What is your source of inspiration for improving your programming
+        skills? Do you learn from each challenge as you search for the most efficient or elegant
+        solution?
+      </p>
+      <p>Let's connect and create something amazing together!</p>
+
+      <div class="about-actions">
+        <a href="#contact" class="btn">Let's Talk</a>
+        <button
+          class="emoji-btn"
+          (mouseenter)="openOverlay()"
+          (mouseleave)="closeOverlay()"
+          (click)="openOverlay()"
+          aria-label="More about me"
+        >
+          <img src="/assets/icons/emoji.svg" alt="" />
+        </button>
+      </div>
+
+      @if (isOverlayOpen) {
+        <div class="about-overlay">
+          <h3>More about me</h3>
+          <ul>
+            @for (fact of facts; track fact) {
+              <li>
+                <img src="/assets/icons/check_circle_icon.svg" alt="" />
+                {{ fact }}
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<section class="references" id="references">
+  <div class="references-content">
+    <h2>What my colleagues say about me</h2>
+
+    <div class="reference-list">
+      @for (reference of references; track reference.name) {
+        <div class="reference">
+          <article class="reference-card">
+            <span class="card-star"></span>
+            <h3>{{ reference.name }}</h3>
+            <p class="reference-text">{{ reference.text }}</p>
+            <p class="reference-role">{{ reference.role }}</p>
+          </article>
+          <a [href]="reference.linkedinUrl" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+            LinkedIn profile &gt;&gt;
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-content">
+    <div class="portfolio-intro">
+      <h2>My work</h2>
+      <p>Explore a selection of my work here - Interact with the projects to see my skills in action.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-image theme-{{ currentProject.theme }}">
+        <span class="project-star"></span>
+        <img [src]="'/assets/img/' + currentProject.image" [alt]="'Screenshot of ' + currentProject.name" />
+      </div>
+
+      <div class="project-side">
+        <div class="project-card">
+          <div class="card-head">
+            <h3>{{ currentProject.name }}</h3>
+            <div class="icon-wrapper">
+              <button
+                class="project-icon-btn"
+                (mouseenter)="openCapsule()"
+                (mouseleave)="closeCapsule()"
+                (click)="openCapsule()"
+                aria-label="My role in this project"
+              >
+                <img [src]="'/assets/icons/' + currentProject.icon" alt="" />
+              </button>
+              @if (isCapsuleOpen) {
+                <div class="capsule">{{ currentProject.capsule }}</div>
+              }
+            </div>
+          </div>
+
+          <p class="technologies">{{ currentProject.technologies.join(' | ') }}</p>
+          <p class="description">{{ currentProject.description }}</p>
+
+          <div class="card-actions">
+            <a [href]="currentProject.githubUrl" target="_blank" rel="noopener noreferrer" class="btn">
+              GitHub <span class="btn-arrow"></span>
+            </a>
+            <a [href]="currentProject.liveUrl" target="_blank" rel="noopener noreferrer" class="btn">
+              Live Test <span class="btn-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-nav">
+          <button (click)="previousProject()">&lt;&lt; Previous project</button>
+          <button (click)="nextProject()">Next project &gt;&gt;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

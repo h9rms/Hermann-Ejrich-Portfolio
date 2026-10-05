@@ -1,0 +1,142 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.references {
+  min-height: 100vh;
+  padding: 160px 0 80px;
+  background-color: $color-blue;
+  color: $color-cream;
+}
+
+.references-content {
+  @include content-wrapper;
+}
+
+h2 {
+  font-size: clamp(48px, 5.5vw, 80px);
+  line-height: 1;
+  margin-bottom: 60px;
+}
+
+.reference-list {
+  @include flex(row, flex-start, flex-start, 32px);
+}
+
+.reference {
+  @include flex(column, flex-start, stretch);
+  width: calc((100% - 64px) / 3);
+
+  &:nth-child(2) {
+    margin-top: 60px;
+  }
+
+  &:nth-child(3) {
+    margin-top: 232px;
+  }
+}
+
+.reference-card {
+  position: relative;
+  padding: 40px 32px;
+  border: 1px solid $color-cream;
+  border-radius: 4px;
+
+  h3 {
+    font-family: $font-text;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  &:hover .card-star {
+    opacity: 1;
+  }
+}
+
+.card-star {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: $color-orange;
+  -webkit-mask: url('/assets/img/hero_background.png') center / contain no-repeat;
+  mask: url('/assets/img/hero_background.png') center / contain no-repeat;
+  opacity: 0;
+  transition: opacity 125ms ease;
+}
+
+.reference-text {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.reference-role {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.linkedin-link {
+  align-self: flex-end;
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  transition: color 125ms ease;
+
+  &:hover {
+    color: $color-orange;
+  }
+}
+
+@include tablet {
+  .references {
+    padding: 140px 0 80px;
+  }
+
+  .reference-list {
+    flex-direction: column;
+  }
+
+  .reference {
+    width: 100%;
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      margin-top: 0;
+    }
+  }
+}
+
+@include mobile {
+  .references {
+    padding: 100px 0 64px;
+  }
+
+  h2 {
+    font-size: 40px;
+    margin-bottom: 32px;
+  }
+
+  .reference-card {
+    padding: 24px 16px;
+
+    h3 {
+      font-size: 22px;
+    }
+  }
+
+  .reference-text {
+    font-size: 16px;
+  }
+
+  .reference-role,
+  .linkedin-link {
+    font-size: 18px;
+  }
+
+  .linkedin-link {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,186 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  color: $color-cream;
+}
+
+.header-content {
+  @include flex(row, space-between, center);
+  position: relative;
+  max-width: $content-max-width;
+  height: 120px;
+  margin: 0 auto;
+  padding: 0 80px;
+
+  @include tablet {
+    padding: 0 $padding-tablet;
+  }
+
+  @include mobile {
+    height: 80px;
+    padding: 0 $padding-mobile;
+  }
+}
+
+.logo {
+  @include flex(row, flex-start, center, 8px);
+}
+
+.logo-icon {
+  width: 30px;
+  height: 40px;
+}
+
+.logo-text {
+  font-size: 32px;
+  font-weight: 500;
+
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+.header-actions {
+  @include flex(row, flex-end, center, 24px);
+
+  @include mobile {
+    gap: 16px;
+  }
+}
+
+.lang-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+  transition: background-color 125ms ease, border-color 125ms ease;
+
+  &:hover {
+    background-color: $color-orange;
+    border-color: $color-orange;
+  }
+}
+
+.icon-btn {
+  display: flex;
+  background: none;
+  border: none;
+  color: inherit;
+  transition: color 125ms ease;
+
+  &:hover {
+    color: $color-orange;
+  }
+}
+
+.icon-burger {
+  @include mask-icon('burger_icon.svg');
+}
+
+.icon-close {
+  @include mask-icon('close_icon.svg');
+}
+
+.icon-github {
+  @include mask-icon('github_icon.svg');
+}
+
+.icon-linkedin {
+  @include mask-icon('linked_in_icon.svg');
+}
+
+.icon-mail {
+  @include mask-icon('email.svg');
+}
+
+.menu {
+  position: absolute;
+  top: 24px;
+  right: 64px;
+  width: 220px;
+  padding: 16px;
+  background-color: $color-cream;
+  border: 2px solid $color-dark;
+  border-radius: 8px;
+  color: $color-dark;
+
+  @include tablet {
+    right: 24px;
+  }
+
+  @include mobile {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+.menu-head {
+  @include flex(row, space-between, center);
+  margin-bottom: 16px;
+}
+
+.menu-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: $color-blue;
+}
+
+.close-btn {
+  color: $color-yellow;
+}
+
+.menu-links {
+  @include flex(column, flex-start, flex-start, 8px);
+  margin-bottom: 24px;
+
+  a {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    transition: color 125ms ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: $color-orange;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 125ms ease;
+    }
+
+    &:hover {
+      color: $color-orange;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.menu-socials {
+  @include flex(row, flex-start, center, 8px);
+
+  a {
+    color: inherit;
+    transition: color 125ms ease;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+}

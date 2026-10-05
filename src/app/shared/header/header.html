@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="header-content">
+    <a routerLink="/" class="logo">
+      <img src="/assets/icons/schneider_logo.svg" alt="" class="logo-icon" />
+      <span class="logo-text">Ejrich</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="lang-btn">EN</button>
+      <button class="icon-btn" (click)="toggleMenu()" aria-label="Open menu">
+        <span class="icon-burger"></span>
+      </button>
+    </div>
+
+    @if (isMenuOpen) {
+      <nav class="menu">
+        <div class="menu-head">
+          <span class="menu-title">Menu</span>
+          <button class="icon-btn close-btn" (click)="closeMenu()" aria-label="Close menu">
+            <span class="icon-close"></span>
+          </button>
+        </div>
+
+        <ul class="menu-links">
+          @for (link of navLinks; track link.fragment) {
+            <li>
+              <a routerLink="/" [fragment]="link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+
+        <div class="menu-socials">
+          <a href="https://github.com/h9rms" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <span class="icon-github"></span>
+          </a>
+          <a href="https://www.linkedin.com/in/DEIN-PROFIL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span class="icon-linkedin"></span>
+          </a>
+          <a href="mailto:deine@email.de" aria-label="E-Mail">
+            <span class="icon-mail"></span>
+          </a>
+        </div>
+      </nav>
+    }
+  </div>
+</header>
