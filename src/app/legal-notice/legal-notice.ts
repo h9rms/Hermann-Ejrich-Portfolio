@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Footer } from '../shared/footer/footer';
 
 @Component({
-  imports: [],
   selector: 'app-legal-notice',
-  styleUrl: './legal-notice.scss',
+  imports: [RouterLink, Footer],
   templateUrl: './legal-notice.html',
+  styleUrl: './legal-notice.scss',
 })
 export class LegalNotice {}
