@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Header } from '../../shared/header/header';
+import { SectionDots } from '../../shared/section-dots/section-dots';
 
 interface Project {
   name: string;
@@ -15,7 +16,7 @@ interface Project {
 
 @Component({
   selector: 'app-portfolio',
-  imports: [Header],
+  imports: [Header, SectionDots],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss',
 })

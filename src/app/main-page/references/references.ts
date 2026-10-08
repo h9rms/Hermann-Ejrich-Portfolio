@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Header } from '../../shared/header/header';
+import { SectionDots } from '../../shared/section-dots/section-dots';
 
 interface Reference {
   name: string;
@@ -10,7 +11,7 @@ interface Reference {
 
 @Component({
   selector: 'app-references',
-  imports: [Header],
+  imports: [Header, SectionDots],
   templateUrl: './references.html',
   styleUrl: './references.scss',
 })

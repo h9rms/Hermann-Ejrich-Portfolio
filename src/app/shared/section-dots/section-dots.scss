@@ -1,0 +1,48 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.dots {
+  @include flex(column, center, center, 25px);
+  position: absolute;
+  top: 50%;
+  right: max(78px, calc((100% - #{$content-max-width}) / 2 + 78px));
+  z-index: 50;
+  transform: translateY(-50%);
+  color: $color-cream;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.dots-dark {
+  color: $color-dark;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  transition: transform 125ms ease;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.dot.active {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  background-color: $color-yellow;
+  transform: rotate(45deg);
+
+  &:hover {
+    transform: rotate(45deg) scale(1.3);
+  }
+}
+
+.dots-dark .dot.active {
+  background-color: $color-orange;
+}

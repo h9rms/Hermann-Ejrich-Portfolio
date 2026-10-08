@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Header } from '../../shared/header/header';
+import { SectionDots } from '../../shared/section-dots/section-dots';
 
 @Component({
   selector: 'app-about-me',
-  imports: [Header],
+  imports: [Header, SectionDots],
   templateUrl: './about-me.html',
   styleUrl: './about-me.scss',
 })

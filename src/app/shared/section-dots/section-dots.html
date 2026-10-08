@@ -1,0 +1,5 @@
+<nav class="dots" [class.dots-dark]="theme === 'dark'" aria-label="Section navigation">
+  @for (section of sections; track section; let i = $index) {
+    <a [href]="'#' + section" class="dot" [class.active]="i === active" [attr.aria-label]="'Go to ' + section"></a>
+  }
+</nav>
