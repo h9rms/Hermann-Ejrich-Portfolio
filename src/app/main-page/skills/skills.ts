@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Header } from '../../shared/header/header';
 
 interface Skill {
   name: string;
@@ -7,7 +8,7 @@ interface Skill {
 
 @Component({
   selector: 'app-skills',
-  imports: [],
+  imports: [Header],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { Header } from '../../shared/header/header';
 
 @Component({
-  imports: [],
   selector: 'app-hero',
-  styleUrl: './hero.scss',
+  imports: [Header],
   templateUrl: './hero.html',
+  styleUrl: './hero.scss',
 })
 export class Hero {}

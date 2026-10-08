@@ -1,5 +1,17 @@
-<header class="header">
+<header class="header" [class.header-dark]="theme === 'dark'">
   <div class="header-content">
+    <div class="header-socials">
+      <a href="https://github.com/h9rms" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <span class="icon-github"></span>
+      </a>
+      <a href="https://www.linkedin.com/in/DEIN-PROFIL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <span class="icon-linkedin"></span>
+      </a>
+      <a href="mailto:hermannejrich@icloud.com" aria-label="E-Mail">
+        <span class="icon-mail"></span>
+      </a>
+    </div>
+
     <a routerLink="/" class="logo">
       <img src="/assets/icons/schneider_logo.svg" alt="" class="logo-icon" />
       <span class="logo-text">Ejrich</span>
@@ -36,7 +48,7 @@
           <a href="https://www.linkedin.com/in/DEIN-PROFIL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <span class="icon-linkedin"></span>
           </a>
-          <a href="mailto:deine@email.de" aria-label="E-Mail">
+          <a href="mailto:hermannejrich@icloud.com" aria-label="E-Mail">
             <span class="icon-mail"></span>
           </a>
         </div>

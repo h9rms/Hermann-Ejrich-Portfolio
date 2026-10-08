@@ -1,4 +1,5 @@
 <section class="references" id="references">
+  <app-header />
   <div class="references-content">
     <h2>What my colleagues say about me</h2>
 
@@ -11,7 +12,12 @@
             <p class="reference-text">{{ reference.text }}</p>
             <p class="reference-role">{{ reference.role }}</p>
           </article>
-          <a [href]="reference.linkedinUrl" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+          <a
+            [href]="reference.linkedinUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="linkedin-link"
+          >
             LinkedIn profile &gt;&gt;
           </a>
         </div>

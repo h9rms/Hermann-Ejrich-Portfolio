@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 interface NavLink {
@@ -13,6 +13,8 @@ interface NavLink {
   styleUrl: './header.scss',
 })
 export class Header {
+  @Input() theme: 'light' | 'dark' = 'light';
+
   isMenuOpen = false;
 
   navLinks: NavLink[] = [

@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,8 +10,14 @@
   color: $color-cream;
 }
 
+.header-dark {
+  color: $color-dark;
+}
+
 .header-content {
-  @include flex(row, space-between, center);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   position: relative;
   max-width: $content-max-width;
   height: 120px;
@@ -23,8 +29,26 @@
   }
 
   @include mobile {
+    grid-template-columns: 1fr auto;
     height: 80px;
     padding: 0 $padding-mobile;
+  }
+}
+
+.header-socials {
+  @include flex(row, flex-start, center, 8px);
+
+  a {
+    color: inherit;
+    transition: color 125ms ease;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+
+  @include mobile {
+    display: none;
   }
 }
 
@@ -48,6 +72,7 @@
 
 .header-actions {
   @include flex(row, flex-end, center, 24px);
+  justify-self: end;
 
   @include mobile {
     gap: 16px;
