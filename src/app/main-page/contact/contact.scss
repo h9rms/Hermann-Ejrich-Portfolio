@@ -5,7 +5,6 @@
   padding-top: 160px;
   background-color: $color-dark;
   color: $color-cream;
-  overflow: hidden;
 }
 
 .contact-content {
@@ -62,8 +61,10 @@
 
 .field {
   @include flex(column, flex-start, stretch);
+  position: relative;
   margin-bottom: 56px;
   border-bottom: 1px solid $color-yellow;
+  transition: border-color 125ms ease;
 
   label {
     padding: 0 16px;
@@ -108,11 +109,33 @@
     field-sizing: content;
     max-height: 160px;
   }
+
+  &.invalid {
+    border-bottom-color: $color-orange;
+
+    label {
+      color: $color-orange;
+    }
+  }
+}
+
+.field-error {
+  position: absolute;
+  top: 100%;
+  left: 16px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 300;
+  color: $color-orange;
+}
+
+.privacy-block {
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .privacy {
   @include flex(row, flex-start, flex-start, 12px);
-  margin-bottom: 40px;
   font-size: 18px;
   font-weight: 300;
 
@@ -152,6 +175,16 @@
   }
 }
 
+.privacy-error {
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 300;
+  color: $color-orange;
+}
+
 .form-actions {
   @include flex(row, center, center);
 
@@ -163,6 +196,22 @@
       pointer-events: none;
     }
   }
+}
+
+.form-feedback {
+  min-height: 28px;
+  margin-top: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.feedback-success {
+  color: $color-yellow;
+}
+
+.feedback-error {
+  color: $color-orange;
 }
 
 .scroll-top {
@@ -214,6 +263,7 @@
   .contact-intro {
     h2 {
       font-size: 40px;
+      white-space: normal;
       margin-bottom: 32px;
     }
 
