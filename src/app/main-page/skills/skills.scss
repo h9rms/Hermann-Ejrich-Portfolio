@@ -33,9 +33,9 @@ h2 {
   border-radius: 4px;
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.2;
     text-align: justify;
   }
 }
@@ -43,9 +43,9 @@ h2 {
 .skills-grid {
   @include flex(row, center, flex-start);
   flex-wrap: wrap;
-  row-gap: 24px;
+  row-gap: 16px;
   position: absolute;
-  right: $padding-desktop;
+  right: 96px;
   bottom: 120px;
   width: 680px;
 }
@@ -138,8 +138,7 @@ h2 {
     height: auto;
   }
 
-  .skills-intro,
-  .skills-grid {
+  .skills-intro {
     position: static;
   }
 
@@ -148,6 +147,7 @@ h2 {
   }
 
   .skills-grid {
+    position: static;
     width: 100%;
     max-width: 680px;
     align-self: center;
@@ -155,7 +155,8 @@ h2 {
 
   .star-wrapper {
     position: relative;
-    inset: auto;
+    left: auto;
+    bottom: auto;
     order: 3;
     align-self: flex-start;
   }
@@ -172,37 +173,17 @@ h2 {
   }
 
   .skills-box {
-  width: min(600px, 45vw);
-  padding: 32px;
-  background-color: $color-blue;
-  border-radius: 4px;
-
-  p {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.2;
-    text-align: justify;
+    padding: 16px;
   }
-}
-
-.skills-grid {
-  @include flex(row, center, flex-start);
-  flex-wrap: wrap;
-  row-gap: 16px;
-  position: absolute;
-  right: 96px;
-  bottom: 120px;
-  width: 680px;
-}
 
   .skill {
     width: 25%;
-    gap: 8px;
+    gap: 4px;
     font-size: 16px;
 
     img {
-      width: 48px;
-      height: 48px;
+      width: 64px;
+      height: 64px;
     }
   }
 
